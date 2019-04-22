@@ -163,7 +163,7 @@
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fKV-Ak-3LC">
-                                <rect key="frame" x="116" y="362.33333333333331" width="143" height="87.666666666666686"/>
+                                <rect key="frame" x="116" y="377.33333333333331" width="143" height="57.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-zb-SGA">
                                         <rect key="frame" x="0.0" y="0.0" width="143" height="30"/>
@@ -177,22 +177,8 @@
                                         <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESs-ZP-WY9">
-                                        <rect key="frame" x="0.0" y="57.666666666666686" width="143" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                             </stackView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOk-Ob-LDI">
-                                <rect key="frame" x="0.0" y="120" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -205,18 +191,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lgJ-8S-J6S"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IX2-Ie-t32" userLabel="navigator">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Nfw-DR-o3R">
-                            <connections>
-                                <action selector="setEditLabel:" destination="zVD-oP-phj" id="QzV-zh-kp2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="categoryLabel" destination="Bpk-xn-2nR" id="kj1-GU-ODg"/>
-                        <outlet property="descLabel" destination="ESs-ZP-WY9" id="J11-cF-a5d"/>
                         <outlet property="detailsLabel" destination="E8Q-zb-SGA" id="4fO-0e-RvV"/>
-                        <outlet property="navigationItemDetail" destination="IX2-Ie-t32" id="epb-w0-qcT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3d-X9-gRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
