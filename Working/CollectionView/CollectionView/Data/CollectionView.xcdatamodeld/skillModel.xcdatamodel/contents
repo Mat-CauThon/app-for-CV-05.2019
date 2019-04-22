@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Skill" representedClassName=".Skill" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="skillDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="skillName" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SkillDesk" representedClassName=".SkillDisk" syncable="YES">
+        <attribute name="skillDescriptionText" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Skill" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="SkillDesk" positionX="-63" positionY="0" width="128" height="60"/>
+    </elements>
+</model>
