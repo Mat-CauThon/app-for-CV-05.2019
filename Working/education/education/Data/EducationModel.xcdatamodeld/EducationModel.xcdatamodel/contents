@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Education" representedClassName="Education" syncable="YES">
+        <attribute name="endYear" optional="YES" attributeType="String" maxValueString="4" defaultValueString="2000" syncable="YES"/>
+        <attribute name="organization" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startYear" optional="YES" attributeType="String" maxValueString="4" defaultValueString="2000" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Education" positionX="-63" positionY="-18" width="128" height="90"/>
+    </elements>
+</model>
