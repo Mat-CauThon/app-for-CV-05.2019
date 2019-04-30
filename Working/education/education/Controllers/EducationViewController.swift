@@ -18,30 +18,26 @@ class EducationCellClass: UITableViewCell {
     @IBOutlet weak var defis: UILabel!
 }
 
-class testClass {
-    var organizations: String!
-    var startYear: String!
-    var endYear: String!
-    init(organization: String, start: String, end: String) {
-        organizations = organization
-        startYear = start
-        endYear = end
-    }
-}
+
+
 
 class EducationViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var educationCollection = [testClass]()
-    var menuIsOpen = false
-    var newButton: UIButton!
-    var cellCount: Int!
-    var field: UITextField!
-    var startYear: UITextField!
-    var endYear: UITextField!
+   
+    private var filtered = [Education]()
+    private var menuIsOpen = false
+    private var newButton: UIButton!
+    private var cellCount: Int!
+    private var field: UITextField!
+    private var startYear: UITextField!
+    private var endYear: UITextField!
+    private var isFiltered = false
+    private var query = ""
     
     private let context = PersistentService.persistentContainer.viewContext
     private var fetchedRC: NSFetchedResultsController<Education>!
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var addMenuButton: UIButton!
     
     
@@ -55,7 +51,7 @@ class EducationViewController: UIViewController {
     @IBAction func addMenu(_ sender: Any) {
         menuIsOpen = !menuIsOpen
         menuHeigthConstraint.constant = menuIsOpen ? 200 : 44
-        menuOpenWidth.constant = menuIsOpen ? 30 : 10
+        //menuOpenWidth.constant = menuIsOpen ? 30 : 10
         //view.layoutIfNeeded()
         field.resignFirstResponder()
         startYear.resignFirstResponder()
@@ -81,9 +77,7 @@ class EducationViewController: UIViewController {
 //    }
 
     
-    
    
-
 }
 
 extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
@@ -170,11 +164,27 @@ extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
     @IBAction func addNewCell() {
         print("add new")
         self.newButton.pulsate()
-        educationCollection.append(testClass.init(organization: field.text!, start: startYear.text!, end: endYear.text!))
+//        //educationCollection.append(testClass.init(organization: field.text!, start: startYear.text!, end: endYear.text!))
+//        field.text = nil
+//        startYear.text = nil
+//        endYear.text = nil
+        
+        let data = Education(entity: Education.entity(), insertInto: self.context)
+        data.organization = field.text!
+        data.startYear = startYear.text!
+        data.endYear = endYear.text!
+        PersistentService.saveContext()
+        refresh()
+        tableView.reloadData()
+        
+        
         field.text = nil
         startYear.text = nil
         endYear.text = nil
-        tableView.reloadData()
+        
+        
+        
+        
     }
     
     
@@ -184,19 +194,52 @@ extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
+        refresh()
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return educationCollection.count
+        let count = fetchedRC.fetchedObjects?.count ?? 0
+        return count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        view.layoutIfNeeded()
         if editingStyle == .delete {
-            educationCollection.remove(at: indexPath.row)
+            
+            let cell = tableView.cellForRow(at: indexPath)
+
+            UIView.transition(
+                with: tableView,
+                duration: 1.0,
+                options: .transitionCrossDissolve,
+                animations: {
+                    cell!.removeFromSuperview()
+                    //let moc = self.context
+                    //print(indexPath)
+                    self.context.delete(self.fetchedRC.object(at: indexPath))
+                    do {
+                        try self.context.save()
+                        print("saved!")
+                    } catch let error as NSError {
+                        print("Could not save \(error), \(error.userInfo)")
+                    } catch {}
+
+                    self.refresh()
+            },
+                completion: { _ in
+                    //tableView.removeFromSuperview()
+                //    cell!.removeFromSuperview()
+            })
         }
+        
         tableView.reloadData()
     }
     
@@ -204,8 +247,8 @@ extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EducationItem", for: indexPath) as! EducationCellClass
         
-        let education = educationCollection[indexPath.row]
-        cell.organization.text = education.organizations
+        let education = fetchedRC.object(at: indexPath)
+        cell.organization.text = education.organization
         cell.startYear.text = education.startYear
         cell.endYear.text = education.endYear
         
@@ -213,5 +256,47 @@ extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    private func refresh() {
+        
+        let request = Education.fetchRequest() as NSFetchRequest<Education>
+        if !query.isEmpty {
+            request.predicate = NSPredicate(format: "organization CONTAINS[cd] %@", query)
+        }
+        let sort = NSSortDescriptor(key: #keyPath(Education.endYear), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+        request.sortDescriptors = [sort]
+        do {
+           fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            try fetchedRC.performFetch()
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        //tableView.reloadData()
+        
+    }
 }
+
+extension EducationViewController: UISearchBarDelegate {
+
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let txt = searchBar.text else {
+            return
+        }
+        query = txt
+        refresh()
+        searchBar.resignFirstResponder()
+        tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        query = ""
+      
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        refresh()
+        tableView.reloadData()
+    }
+}
+
+

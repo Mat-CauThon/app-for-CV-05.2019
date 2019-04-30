@@ -7,19 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40951452278741700CD281D /* education.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A40951432278741700CD281D /* education.xcdatamodeld */; };
+		A40951482278749D00CD281D /* Education+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40951462278749D00CD281D /* Education+CoreDataClass.swift */; };
+		A40951492278749D00CD281D /* Education+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40951472278749D00CD281D /* Education+CoreDataProperties.swift */; };
 		A410A5A92271E8D9009F57CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410A5A82271E8D9009F57CE /* AppDelegate.swift */; };
 		A410A5AB2271E8D9009F57CE /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410A5AA2271E8D9009F57CE /* EducationViewController.swift */; };
 		A410A5AE2271E8D9009F57CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A410A5AC2271E8D9009F57CE /* Main.storyboard */; };
 		A410A5B02271E8DA009F57CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A410A5AF2271E8DA009F57CE /* Assets.xcassets */; };
 		A410A5B32271E8DA009F57CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A410A5B12271E8DA009F57CE /* LaunchScreen.storyboard */; };
 		A43710E52277399E00DDB905 /* buttonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43710E42277399E00DDB905 /* buttonAnimation.swift */; };
-		A43710E822774CEA00DDB905 /* EducationModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A43710E622774CEA00DDB905 /* EducationModel.xcdatamodeld */; };
 		A43710ED22774E2500DDB905 /* PersistentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43710EC22774E2500DDB905 /* PersistentService.swift */; };
-		A43710F022774E5E00DDB905 /* Education+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43710EE22774E5E00DDB905 /* Education+CoreDataClass.swift */; };
-		A43710F122774E5E00DDB905 /* Education+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43710EF22774E5E00DDB905 /* Education+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A40951442278741700CD281D /* education.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = education.xcdatamodel; sourceTree = "<group>"; };
+		A40951462278749D00CD281D /* Education+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Education+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A40951472278749D00CD281D /* Education+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Education+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A410A5A52271E8D9009F57CE /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A410A5A82271E8D9009F57CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A410A5AA2271E8D9009F57CE /* EducationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewController.swift; sourceTree = "<group>"; };
@@ -28,10 +31,7 @@
 		A410A5B22271E8DA009F57CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A410A5B42271E8DA009F57CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A43710E42277399E00DDB905 /* buttonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonAnimation.swift; sourceTree = "<group>"; };
-		A43710E722774CEA00DDB905 /* EducationModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EducationModel.xcdatamodel; sourceTree = "<group>"; };
 		A43710EC22774E2500DDB905 /* PersistentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentService.swift; sourceTree = "<group>"; };
-		A43710EE22774E5E00DDB905 /* Education+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Education+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A43710EF22774E5E00DDB905 /* Education+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Education+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +79,10 @@
 		A43710F4227751D800DDB905 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A40951462278749D00CD281D /* Education+CoreDataClass.swift */,
+				A40951472278749D00CD281D /* Education+CoreDataProperties.swift */,
+				A40951432278741700CD281D /* education.xcdatamodeld */,
 				A43710EC22774E2500DDB905 /* PersistentService.swift */,
-				A43710EE22774E5E00DDB905 /* Education+CoreDataClass.swift */,
-				A43710EF22774E5E00DDB905 /* Education+CoreDataProperties.swift */,
-				A43710E622774CEA00DDB905 /* EducationModel.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -166,13 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A43710E822774CEA00DDB905 /* EducationModel.xcdatamodeld in Sources */,
 				A410A5AB2271E8D9009F57CE /* EducationViewController.swift in Sources */,
-				A43710F022774E5E00DDB905 /* Education+CoreDataClass.swift in Sources */,
 				A43710ED22774E2500DDB905 /* PersistentService.swift in Sources */,
+				A40951482278749D00CD281D /* Education+CoreDataClass.swift in Sources */,
 				A410A5A92271E8D9009F57CE /* AppDelegate.swift in Sources */,
-				A43710F122774E5E00DDB905 /* Education+CoreDataProperties.swift in Sources */,
 				A43710E52277399E00DDB905 /* buttonAnimation.swift in Sources */,
+				A40951492278749D00CD281D /* Education+CoreDataProperties.swift in Sources */,
+				A40951452278741700CD281D /* education.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,13 +374,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A43710E622774CEA00DDB905 /* EducationModel.xcdatamodeld */ = {
+		A40951432278741700CD281D /* education.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A43710E722774CEA00DDB905 /* EducationModel.xcdatamodel */,
+				A40951442278741700CD281D /* education.xcdatamodel */,
 			);
-			currentVersion = A43710E722774CEA00DDB905 /* EducationModel.xcdatamodel */;
-			path = EducationModel.xcdatamodeld;
+			currentVersion = A40951442278741700CD281D /* education.xcdatamodel */;
+			path = education.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
