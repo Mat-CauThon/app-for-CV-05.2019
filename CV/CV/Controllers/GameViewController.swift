@@ -48,10 +48,9 @@ class GameViewController: UIViewController {
             repeats: true)
     }
     @objc func updateBar() {
+        
         if progressBar.progress != 0 {
             progressBar.progress -= 0.04
-        } else if progressBar.progress == 0 {
-            attackButton.titleLabel?.text = "Back?"
         } else if opened {
              dismiss(animated: true, completion: nil)
         }
@@ -59,18 +58,14 @@ class GameViewController: UIViewController {
     
     
     @IBAction func attackAction(_ sender: Any) {
-        if opened {
             if enemyHpBar.progress != 0 {
                 enemyHpBar.progress -= 0.01
             } else {
-                opened = false
-                progressBar.progress = 0.1
                 
+                progressBar.progress = 1.0
                 performSegue(withIdentifier: "Show Easter Egg", sender: self)
+                
             }
-        } else {
-            opened = true
-        }
     }
     
     
