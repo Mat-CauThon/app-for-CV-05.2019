@@ -173,7 +173,6 @@ class MainViewController: UIViewController {
     
     func makeSlider() {
 
-        print(menu.frame.size.width)
         educationButton = makeButton(x: menu.frame.size.width - 110, y: 130, title: "Education", target: "showEducation")
         xpButton = makeButton(x: (menu.frame.size.width-90)/2, y: 130, title: "Expirience", target: "showXP")
         skillButton = makeButton(x: 20, y: 130, title: "Skills", target: "showSkills")
