@@ -14,11 +14,11 @@ class XPCellClass: UITableViewCell {
 }
 
 
-class XPViewController: UIViewController {
+class XPViewController: UIViewController, UITextFieldDelegate {
     var testArray: [String] = ["LOL", "KEK"]
 
     
-    let customXP = ["Work with Mathematica", "Algorithms knowledge","Program patterns knowledge", "Work with Mathcad", "Work with AutoCAD", "Work with OmniGraffle", "Robots designing", "Consert organization", "Game design", "Game development"]
+     let customXP = ["Work with Mathematica", "Algorithms knowledge","Program patterns knowledge", "Work with Mathcad", "Work with AutoCAD", "Work with OmniGraffle", "Robots designing", "Consert organization", "Game design", "Game development", "Creating web-pages", "Math knowledge"]
     
     
     @IBOutlet weak var backButton: UIButton!
@@ -148,8 +148,8 @@ extension XPViewController: UITableViewDelegate, UITableViewDataSource {
         
         let rect = CGRect(x: 0, y: 0, width: 600, height: 40)
         field = UITextField(frame: rect)
-        
         makeField(field: field, name: "Your Experience")
+        field.delegate = self
         field.returnKeyType = .continue
         addConstraint(item: field!, itemTo: menu!, constant: 20, atributeOne: NSLayoutConstraint.Attribute.left, atributeTwo: NSLayoutConstraint.Attribute.left)
         addConstraint(item: field!, itemTo: backButton!, constant: 51, atributeOne: NSLayoutConstraint.Attribute.top, atributeTwo: NSLayoutConstraint.Attribute.top)

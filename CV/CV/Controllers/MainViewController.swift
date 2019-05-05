@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var photoW: NSLayoutConstraint!
@@ -39,7 +39,14 @@ class MainViewController: UIViewController {
         image.pulsate()
         self.imagePicker.present(from: sender as! UIView)
     }
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     private var educationButton: UIButton!
     private var skillButton: UIButton!
     private var xpButton: UIButton!
@@ -87,7 +94,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.photoH.constant = (view.frame.size.height / 3)
-        self.photoW.constant = (view.frame.size.width / 2.5)
+        self.photoW.constant = (view.frame.size.width / 2)
        // self.photoHCon.consta
 //        self.photoHMargin.constant = (view.frame.size.height / 10)
         let animationArray = [nameField,surnameField,numberField,mailField]

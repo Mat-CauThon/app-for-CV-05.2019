@@ -43,6 +43,9 @@
                                                         <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="t2v-3D-r1I"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -68,6 +71,9 @@
                                                         <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="tnL-Hy-Bgm"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -96,6 +102,9 @@
                                                         <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="uJl-bD-RIh"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -118,6 +127,9 @@
                                                         <color key="textColor" red="1" green="0.57647000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="DdV-Wz-n8L"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -216,9 +228,9 @@
                                     <constraint firstItem="2iq-Fl-7WZ" firstAttribute="leading" secondItem="ehq-iW-sO9" secondAttribute="leading" constant="5" id="1B0-71-baQ"/>
                                     <constraint firstAttribute="trailing" secondItem="b4X-na-ccg" secondAttribute="trailing" id="7uW-bp-HeY"/>
                                     <constraint firstAttribute="trailing" secondItem="2iq-Fl-7WZ" secondAttribute="trailing" id="Eke-PM-tyO"/>
+                                    <constraint firstItem="Udg-OY-dCT" firstAttribute="centerX" secondItem="ehq-iW-sO9" secondAttribute="centerX" id="JB2-J4-fbH"/>
                                     <constraint firstAttribute="bottom" secondItem="b4X-na-ccg" secondAttribute="bottom" id="PcG-b6-Tfs"/>
                                     <constraint firstItem="2iq-Fl-7WZ" firstAttribute="top" secondItem="ehq-iW-sO9" secondAttribute="top" constant="30" id="eEF-Ww-o0p"/>
-                                    <constraint firstItem="Udg-OY-dCT" firstAttribute="leading" secondItem="ehq-iW-sO9" secondAttribute="leading" constant="110" id="jwh-FM-ETm"/>
                                     <constraint firstItem="Udg-OY-dCT" firstAttribute="top" secondItem="2iq-Fl-7WZ" secondAttribute="bottom" constant="16" id="nZa-PU-5ee"/>
                                     <constraint firstItem="b4X-na-ccg" firstAttribute="leading" secondItem="ehq-iW-sO9" secondAttribute="leading" id="y1O-XW-s9J"/>
                                 </constraints>

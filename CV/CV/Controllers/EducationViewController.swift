@@ -25,7 +25,7 @@ struct educationStruct {
     var organization: String!
 }
 
-class EducationViewController: UIViewController {
+class EducationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -56,6 +56,13 @@ class EducationViewController: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
          dismiss(animated: true, completion: nil)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @IBAction func addMenu(_ sender: Any) {
@@ -113,7 +120,9 @@ extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
         addConstraint(item: endYear!, itemTo: field!, constant: 41, atributeOne: NSLayoutConstraint.Attribute.top, atributeTwo: NSLayoutConstraint.Attribute.top)
         addConstraint(item: startYear!, itemTo: endYear!, constant: -20, atributeOne: NSLayoutConstraint.Attribute.right, atributeTwo: NSLayoutConstraint.Attribute.left)
         
-        
+        field.delegate = self
+        startYear.delegate = self
+        endYear.delegate = self
         
         let buttonRect = CGRect(x: view.frame.size.width - 110, y: 130, width: 90, height: 50)
         newButton = UIButton(frame: buttonRect)
