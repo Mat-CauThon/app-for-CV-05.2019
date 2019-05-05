@@ -55,7 +55,7 @@ class SkillViewController: UIViewController {
             }
             
             var newCat = alert.textFields!.last!.text!
-            let nsCat = alert.textFields!.first!.text! as NSString
+            let nsCat = alert.textFields!.last!.text! as NSString
             if nsCat.length > 18 {
                 newCat = nsCat.substring(with: NSRange(location: 0, length: nsCat.length > 18 ? 18 : nsCat.length))
             }
