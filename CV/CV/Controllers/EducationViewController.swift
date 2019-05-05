@@ -90,7 +90,6 @@ extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
         
         makeField(field: field, name: "Organization name")
         field.returnKeyType = .continue
-        //field.return
         addConstraint(item: field!, itemTo: menuItem!, constant: 20, atributeOne: NSLayoutConstraint.Attribute.left, atributeTwo: NSLayoutConstraint.Attribute.left)
         addConstraint(item: field!, itemTo: backButton!, constant: 41, atributeOne: NSLayoutConstraint.Attribute.top, atributeTwo: NSLayoutConstraint.Attribute.top)
         
@@ -116,7 +115,7 @@ extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         
-        let buttonRect = CGRect(x: menuItem.frame.size.width - 110, y: 130, width: 90, height: 50)
+        let buttonRect = CGRect(x: view.frame.size.width - 110, y: 130, width: 90, height: 50)
         newButton = UIButton(frame: buttonRect)
         newButton.setTitle("Add New", for: .normal)
         newButton.setTitleColor(UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0), for: .normal)
@@ -131,8 +130,8 @@ extension EducationViewController: UITableViewDelegate, UITableViewDataSource {
         self.menuItem.addSubview(newButton)
         
         
-        addConstraint(item: field!, itemTo: newButton!, constant: -112, atributeOne: NSLayoutConstraint.Attribute.right, atributeTwo: NSLayoutConstraint.Attribute.left)
-        addConstraint(item: endYear!, itemTo: newButton!, constant: -112, atributeOne: NSLayoutConstraint.Attribute.right, atributeTwo: NSLayoutConstraint.Attribute.left)
+        addConstraint(item: field!, itemTo: newButton!, constant: -20, atributeOne: NSLayoutConstraint.Attribute.right, atributeTwo: NSLayoutConstraint.Attribute.left)
+        addConstraint(item: endYear!, itemTo: newButton!, constant: -20, atributeOne: NSLayoutConstraint.Attribute.right, atributeTwo: NSLayoutConstraint.Attribute.left)
         
         
         

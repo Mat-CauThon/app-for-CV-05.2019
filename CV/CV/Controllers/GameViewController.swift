@@ -12,6 +12,9 @@ class GameViewController: UIViewController {
 
    
     
+    @IBOutlet weak var rigthMargin: NSLayoutConstraint!
+    @IBOutlet weak var smallMargin: NSLayoutConstraint!
+    @IBOutlet weak var topMargin: NSLayoutConstraint!
     @IBOutlet weak var attackButton: UIButton!
     @IBOutlet weak var hpView: UIView!
     @IBOutlet weak var progressView: UIView!
@@ -71,6 +74,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        rigthMargin.constant = view.frame.size.width/2
+        topMargin.constant = view.frame.size.height/4
+        smallMargin.constant = view.frame.size.height / 5
         progressView.addSubview(progressBar)
         hpView.addSubview(enemyHpBar)
         createTimer()

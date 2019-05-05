@@ -13,11 +13,15 @@ import CoreData
 class MainViewController: UIViewController {
     
     
+    @IBOutlet weak var photoW: NSLayoutConstraint!
+    @IBOutlet weak var photoH: NSLayoutConstraint!
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var surnameLabel: UILabel!
     
+    @IBOutlet weak var photoHCon: UIView!
+    @IBOutlet weak var photoHMargin: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mailField: UITextField!
     @IBOutlet weak var numberField: UITextField!
@@ -82,7 +86,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.photoH.constant = (view.frame.size.height / 3)
+        self.photoW.constant = (view.frame.size.width / 2.5)
+       // self.photoHCon.consta
+//        self.photoHMargin.constant = (view.frame.size.height / 10)
         let animationArray = [nameField,surnameField,numberField,mailField]
         let animationArrayL = [nameLabel,surnameLabel,phoneLabel,mailLabel]
         var k: Double = 0
@@ -173,10 +180,10 @@ class MainViewController: UIViewController {
     
     func makeSlider() {
 
-        educationButton = makeButton(x: menu.frame.size.width - 110, y: 130, title: "Education", target: "showEducation")
-        xpButton = makeButton(x: (menu.frame.size.width-90)/2, y: 130, title: "Expirience", target: "showXP")
+        educationButton = makeButton(x: view.frame.size.width - 110, y: 130, title: "Education", target: "showEducation")
+        xpButton = makeButton(x: (view.frame.size.width-90)/2, y: 130, title: "Expirience", target: "showXP")
         skillButton = makeButton(x: 20, y: 130, title: "Skills", target: "showSkills")
-        saveButon = makeButton(x: (menu.frame.size.width-90)/2, y: 65, title: "Save Info", target: "saveInfo")
+        saveButon = makeButton(x: (view.frame.size.width-90)/2, y: 65, title: "Save Info", target: "saveInfo")
         self.menu.addSubview(educationButton)
         self.menu.addSubview(xpButton)
         self.menu.addSubview(skillButton)

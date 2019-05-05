@@ -67,7 +67,7 @@ class XPViewController: UIViewController {
     @IBAction func addMenu(_ sender: Any) {
         menuIsOpen = !menuIsOpen
         menuHeigthConstraint.constant = menuIsOpen ? 200 : 44
-        barHeigthBig.constant = !menuIsOpen ? 712 : 512
+        barHeigthBig.constant = !menuIsOpen ? view.frame.size.height - 185 : view.frame.size.height - 335
         field.resignFirstResponder()
         
         UIView.animate(
@@ -151,13 +151,12 @@ extension XPViewController: UITableViewDelegate, UITableViewDataSource {
         
         makeField(field: field, name: "Your Experience")
         field.returnKeyType = .continue
-        //field.return
         addConstraint(item: field!, itemTo: menu!, constant: 20, atributeOne: NSLayoutConstraint.Attribute.left, atributeTwo: NSLayoutConstraint.Attribute.left)
         addConstraint(item: field!, itemTo: backButton!, constant: 51, atributeOne: NSLayoutConstraint.Attribute.top, atributeTwo: NSLayoutConstraint.Attribute.top)
         
         
         
-        let buttonRect = CGRect(x: menu.frame.size.width - 110, y: 130, width: 90, height: 50)
+        let buttonRect = CGRect(x: view.frame.size.width - 110, y: 130, width: 90, height: 50)
         newButtonXP = UIButton(frame: buttonRect)
         newButtonXP.setTitle("Add New", for: .normal)
         newButtonXP.setTitleColor(UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0), for: .normal)
@@ -172,7 +171,7 @@ extension XPViewController: UITableViewDelegate, UITableViewDataSource {
         self.menu.addSubview(newButtonXP)
         
         
-        addConstraint(item: field!, itemTo: newButtonXP!, constant: -90, atributeOne: NSLayoutConstraint.Attribute.right, atributeTwo: NSLayoutConstraint.Attribute.left)
+        addConstraint(item: field!, itemTo: newButtonXP!, constant: -20, atributeOne: NSLayoutConstraint.Attribute.right, atributeTwo: NSLayoutConstraint.Attribute.left)
         
         
         
@@ -204,11 +203,11 @@ extension XPViewController: UITableViewDelegate, UITableViewDataSource {
     }
     private func makeField(field: UITextField, name: String) {
         
-        //   field.
+       
         field.backgroundColor = UIColor(red:0.16, green:0.16, blue:0.15, alpha:1.0)
         field.minimumFontSize = 30
         field.layer.cornerRadius = 5
-        // field.layer.borderWidth = 8
+       
         field.attributedPlaceholder = NSAttributedString(string: name,
                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 0.6)])
         field.textColor = UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0)
@@ -245,7 +244,7 @@ extension XPViewController: UITableViewDelegate, UITableViewDataSource {
         progressBar.centerYAnchor.constraint(equalTo: progressView.centerYAnchor).isActive = true
         progressBar.heightAnchor.constraint(equalToConstant: 96).isActive = true
         
-        barHeigthBig = progressBar.widthAnchor.constraint(equalToConstant: 712)
+        barHeigthBig = progressBar.widthAnchor.constraint(equalToConstant: view.frame.size.height - 185)
         barHeigthBig.isActive = true
         makeSlider()
     
